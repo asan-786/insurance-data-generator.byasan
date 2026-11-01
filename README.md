@@ -260,3 +260,195 @@ A license has not been specified in this README. Add an appropriate license file
 ---
 
 *Developed as a synthetic insurance data generation and validation project. The repository's source code, tests, and documented execution results are the authoritative references for implemented functionality.*
+
+
+
+
+
+USED AI ->
+
+
+# AI Prompt History and Usage Disclosure
+
+**Project:** Insurance Data Generator
+**Candidate:** Asan Ali
+**Repository:** [https://github.com/asan-786/insurance-data-generator.byasan](https://github.com/asan-786/insurance-data-generator.byasan)
+**AI tool documented:** ChatGPT (OpenAI)
+**Date prepared:** 1 November 2026
+
+## 1. Purpose
+
+This document records the use of AI assistance during development, testing, troubleshooting, and documentation of the Insurance Data Generator.
+
+ChatGPT was used as an assistant to help understand technical issues, explore debugging approaches, prepare documentation, and organize the project for submission. The candidate remains responsible for reviewing the code, understanding the implementation, and verifying the final results.
+
+This document distinguishes prompts visible in the available conversation from summaries of earlier activities whose complete original wording is unavailable.
+
+## 2. AI Tool Disclosure
+
+| Tool             | Usage                                                                           | Record status                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| ChatGPT (OpenAI) | Troubleshooting, validation guidance, Git assistance, and project documentation | [https://chatgpt.com/share/6ae6ebdf-cc04-83ee-afb4-13bb2a3b64f0](https://chatgpt.com/share/6ae6ebdf-cc04-83ee-afb4-13bb2a3b64f0) |
+| Other AI tools   | cloud                                                                           | partialy used                                                                                                                    |
+
+The table should be updated to reflect every AI tool actually used for this project.
+
+## 3. Available Prompt History
+
+The following prompts are reproduced from the available conversation. They relate to preparing the project for recruitment submission and documenting its development.
+
+### Prompt 1 — Create the project README
+
+**AI tool:** ChatGPT
+**Project area:** `README.md`
+**Prompt status:** Verbatim from the available conversation
+
+> Create a professional GitHub README for my existing insurance-data-generator project, based on the YottaFlex AI submission requirements and known project details.
+
+**Purpose:** Obtain a professional README structure covering project functionality, setup, execution, validation, testing, limitations, and AI usage disclosure.
+
+**Review and verification:** The README must be checked against the actual source code and repository structure. Commands, dependencies, features, and test results must be verified before submission.
+
+### Prompt 2 — Prepare the AI prompt-history document
+
+**AI tool:** ChatGPT
+**Project area:** `docs/AI_PROMPT_HISTORY.md`
+**Prompt status:** Verbatim from the available conversation
+
+> Help me prepare an honest AI prompt-history document for my YottaFlex AI candidate project. Do not invent prompts I have not supplied; explain how to record and disclose them.
+
+**Purpose:** Prepare an honest disclosure that distinguishes available original prompts from reconstructed summaries and explains how to record AI assistance.
+
+**Review and verification:** The document must be compared with available conversation histories and records from all AI tools used.
+
+### Prompt 3 — Add ChatGPT and prepare the final output
+
+**AI tool:** ChatGPT
+**Project area:** AI usage disclosure
+**Prompt status:** Verbatim from the available conversation
+
+**Purpose:** Include ChatGPT in the AI usage disclosure and produce a consolidated document.
+
+**Review and verification:** The document identifies ChatGPT as an AI tool and separates available prompts from activity summaries whose original wording is unavailable.
+
+## 4. Earlier Project-Related AI Assistance
+
+The available project context also records earlier assistance. The following are summaries, **not verbatim historical prompts**.
+
+### 4.1 Business-rule validation
+
+**Relevant file:** `validation/business_rules.py`
+
+Assistance involved troubleshooting a policy validation issue concerning the coverage field. The relevant implementation detail recorded in the project context was that the policy uses `coverage`, rather than `current_coverage`.
+
+The recorded development results subsequently showed that the validation pipeline passed with zero unexpected errors.
+
+**Verification required:** Inspect the final implementation and rerun validation against the committed code.
+
+### 4.2 Data generation and automated testing
+
+**Relevant files:** `generate_data.py`, `validate_data.py`, and `tests/`
+
+Assistance involved project execution, debugging, and validation troubleshooting.
+
+Previously recorded results indicated successful data generation, a passing validation pipeline, and nine passing automated tests.
+
+The following commands were used to verify the project:
+
+```bash
+python generate_data.py
+python validate_data.py
+python -m pytest -q
+```
+
+These are commands recorded in the project context. Their results must be reproduced against the final submitted version before they are described as freshly verified.
+
+### 4.3 Git and GitHub publication
+
+Assistance was provided for publishing the project to GitHub, including guidance for resolving a merge conflict in `README.md` and completing the repository push.
+
+**Verification required:** Confirm that the conflict was resolved, the merge was committed, and the latest project files are present in the public repository.
+
+### 4.4 Documentation and recruitment preparation
+
+Assistance was provided to interpret the YottaFlex AI candidate-project requirements, prepare the README, and structure the AI usage disclosure.
+
+The candidate should review all generated documentation, correct any inaccuracies, and ensure the final repository accurately represents the implemented functionality.
+
+## 5. How AI Assisted
+
+Based on the available project history, ChatGPT assisted with:
+
+- Understanding and troubleshooting a business-rule validation issue.
+- Reviewing project execution and validation steps.
+- Explaining Git merge-conflict resolution and GitHub publication commands.
+- Structuring the README and project documentation.
+- Preparing a transparent AI usage disclosure for recruitment submission.
+
+These activities describe the assistance documented in the available context. They are not an exhaustive record of every interaction during development.
+
+## 6. Candidate Contributions and Verification
+
+The following statements must be completed or confirmed by the candidate before submission.
+
+### Code review
+
+I reviewed the project files and checked the AI suggestions against the actual implementation.
+
+### Implementation changes
+
+I evaluated proposed changes and retained or modified the implementation as appropriate.
+
+### Testing
+
+I executed the relevant commands and examined the results before submitting the project.
+
+### Technical understanding
+
+I am prepared to explain the data generation workflow, the implemented business rules, the validation process, the automated tests, and the limitations of the project.
+
+Only retain statements that accurately describe your own work and understanding.
+
+## 7. Limitations of This Record
+
+This document was prepared from the project context and conversation records available during its preparation. It does not establish that every historical prompt from every AI tool has been recovered.
+
+Some earlier development interactions are represented by summaries because their complete original wording is not available in the current record.
+
+To complete the prompt history:
+
+1. Review the relevant ChatGPT conversations and copy additional original prompts.
+2. Check any other AI coding assistants used during development and include their prompts.
+3. Label any reconstructed summaries clearly.
+4. If a tool cannot export its prompts, preserve the records that can be recovered and disclose the limitation.
+5. Do not invent prompts, dates, test results, or personal contributions.
+
+AI responses are not included in full because the YottaFlex AI FAQ states that responses are optional.
+
+## 8. Security and Privacy
+
+Before publishing this document:
+
+- Remove passwords, API keys, tokens, and other credentials.
+- Do not include personal or sensitive information.
+- Ensure that only authorized code and safe synthetic data are included in the public repository.
+
+## 9. Final Submission Checklist
+
+- [ ] All AI tools actually used are disclosed.
+- [ ] Available original prompts are included.
+- [ ] Historical prompts that could not be recovered are disclosed honestly.
+- [ ] Reconstructed summaries are labeled as summaries.
+- [ ] Personal contributions and AI assistance are distinguished.
+- [ ] Test results are accurate and verified against the final version.
+- [ ] The README matches the implementation.
+- [ ] No secrets or unauthorized code are included.
+- [ ] The final document is committed to the public GitHub repository.
+
+## 10. Candidate Declaration
+
+I have prepared this document to disclose AI assistance used during the development and preparation of the Insurance Data Generator. I will review the final document against the available records, add any missing prompts that I can recover, and disclose limitations honestly. I am responsible for understanding the submitted implementation and ensuring that statements about my contributions and verification are accurate.
+
+**Candidate:** Asan Ali
+**Date prepared:** 1 November 2026
+
