@@ -1,0 +1,61 @@
+{
+  "seed": 2026,
+  "record_counts": {
+    "applicants": 3000,
+    "assets": 3000,
+    "quotes": 4000,
+    "decisions": 4000,
+    "policies": 2002,
+    "endorsements": 1,
+    "renewals": 1201,
+    "products": 3
+  },
+  "anomaly_summary": {
+    "RENEWAL_FOR_CANCELLED_POLICY": 1,
+    "POLICY_WITHOUT_ACCEPTANCE": 1,
+    "PREMIUM_ANOMALY": 80,
+    "ENDORSEMENT_EXCEEDS_PRODUCT_LIMIT": 1,
+    "OVERLAPPING_POLICY_PERIODS": 1
+  },
+  "expected_findings": [
+    {
+      "check": "policies",
+      "message": "POL-2026-000001-EDGE-001: customer acceptance is missing.",
+      "classification": "EXPECTED_ANOMALY"
+    },
+    {
+      "check": "endorsements",
+      "message": "END-POL-2026-000002-EDGE-001: new coverage exceeds product limit.",
+      "classification": "EXPECTED_ANOMALY"
+    },
+    {
+      "check": "renewals",
+      "message": "REN-POL-2026-000001-2028-EDGE-001: renewal exists for a cancelled policy.",
+      "classification": "EXPECTED_ANOMALY"
+    },
+    {
+      "check": "overlapping_policies",
+      "message": "Overlapping policy periods: POL-2026-000002 and POL-2026-000002-OVERLAP-EDGE-001",
+      "classification": "EXPECTED_ANOMALY"
+    }
+  ],
+  "unexpected_findings": [],
+  "checks": {
+    "foreign_keys": [],
+    "premiums": [],
+    "policies": [
+      "POL-2026-000001-EDGE-001: customer acceptance is missing."
+    ],
+    "endorsements": [
+      "END-POL-2026-000002-EDGE-001: new coverage exceeds product limit."
+    ],
+    "renewals": [
+      "REN-POL-2026-000001-2028-EDGE-001: renewal exists for a cancelled policy."
+    ],
+    "overlapping_policies": [
+      "Overlapping policy periods: POL-2026-000002 and POL-2026-000002-OVERLAP-EDGE-001"
+    ]
+  },
+  "total_errors": 0,
+  "result": "PASS"
+}

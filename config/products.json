@@ -1,0 +1,27 @@
+
+{
+  "products": [
+    {
+      "product_id": "PRD-001",
+      "product_name": "Motor Insurance",
+      "product_line": "MOTOR",
+      "max_coverage": 2000000,
+      "base_premium": 5000
+    },
+    {
+      "product_id": "PRD-002",
+      "product_name": "Property Insurance",
+      "product_line": "PROPERTY",
+      "max_coverage": 10000000,
+      "base_premium": 8000
+    },
+    {
+      "product_id": "PRD-003",
+      "product_name": "Small Business Insurance",
+      "product_line": "SMALL_BUSINESS",
+      "max_coverage": 5000000,
+      "base_premium": 10000
+    }
+  ],
+  "currency": "INR"
+}

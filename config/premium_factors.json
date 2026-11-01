@@ -1,0 +1,13 @@
+
+{
+  "vehicle_age_factor": {
+    "new": 1.0,
+    "medium": 1.2,
+    "old": 1.5
+  },
+  "claim_history_factor": {
+    "no_claims": 1.0,
+    "one_claim": 1.1,
+    "multiple_claims": 1.4
+  }
+}
