@@ -1,149 +1,262 @@
-# Synthetic Insurance Data Generator
+# Insurance Data Generator
 
-A Python-based data engineering project that generates realistic synthetic insurance datasets and injects controlled anomalies for data quality validation and testing.
+A Python-based synthetic insurance data generation and validation project that creates realistic, interconnected insurance datasets and checks them against business rules.
 
-## Project Overview
+This project demonstrates data generation, business-rule validation, automated testing, and data quality assurance. It is designed to make the generated data reproducible, inspectable, and easier to verify.
 
-This project simulates an insurance workflow, including applicants, insured assets, insurance products, quotes, underwriting decisions, policies, endorsements, and renewals.
+## Overview
 
-It generates reproducible synthetic data using a fixed random seed and validates business rules to identify expected anomalies and unexpected data quality errors.
+Insurance systems manage interconnected information about applicants, assets, quotes, underwriting decisions, policies, renewals, and endorsements. Maintaining consistency across these records is important for reliable downstream analysis and testing.
 
-## Features
+The Insurance Data Generator creates synthetic insurance records and validates their consistency using business rules. It also supports testing with intentionally anomalous records to help identify potential data quality and business logic issues.
 
-- Generates synthetic insurance workflow datasets.
-- Supports reproducible generation using seed `2026`.
-- Injects five types of labeled anomalies.
-- Validates relationships and business rules across datasets.
-- Exports datasets as CSV files.
-- Produces a JSON validation report.
-- Includes automated tests using pytest.
+> **Note:** The project generates synthetic data. It is not an insurance pricing engine, an underwriting recommendation system, or a production insurance platform.
 
-## Dataset Summary
+## Key Features
 
-| Dataset | Records |
-|---|---:|
-| Applicants | 3,000 |
-| Assets | 3,000 |
-| Quotes | 4,000 |
-| Underwriting decisions | 4,000 |
-| Policies | 2,002 |
-| Renewals | 1,201 |
-| Endorsements | 1 |
-
-Ground-truth labels: **84**.
-
-## Injected Anomalies
-
-| Anomaly type | Count |
-|---|---:|
-| `PREMIUM_ANOMALY` | 80 |
-| `POLICY_WITHOUT_ACCEPTANCE` | 1 |
-| `ENDORSEMENT_EXCEEDS_PRODUCT_LIMIT` | 1 |
-| `RENEWAL_FOR_CANCELLED_POLICY` | 1 |
-| `OVERLAPPING_POLICY_PERIODS` | 1 |
+- **Synthetic data generation:** Generate insurance-related records for testing and experimentation.
+- **Multiple related datasets:** Create records covering applicants, assets, quotes, underwriting decisions, policies, renewals, endorsements, and ground-truth labels.
+- **Business-rule validation:** Check generated data for inconsistencies and invalid relationships.
+- **Anomaly detection:** Identify selected insurance data anomalies, including:
+  - Premium anomalies.
+  - Policies without acceptance.
+  - Endorsements exceeding product limits.
+  - Renewals associated with cancelled policies.
+  - Overlapping policy periods.
+- **Automated testing:** Run the project's test suite with `pytest`.
+- **Validation reporting:** Execute the validation pipeline and review its overall result and unexpected errors.
 
 ## Technology Stack
 
-- Python
-- CSV and JSON
-- pytest
-- Synthetic data generation
-- Business-rule validation
+- **Language:** Python
+- **Testing:** pytest
+- **Data processing:** Python-based generation and validation logic
+- **Version control:** Git and GitHub
+
+The exact dependencies are defined by the project's dependency files, if provided.
 
 ## Project Structure
 
 ```text
 insurance-data-generator/
 ├── generator/
-│   └── edge_case_generator.py
+│   └── # Data generation modules
 ├── validation/
-│   ├── business_rules.py
-│   ├── endorsements.py
-│   └── foreign_keys.py
+│   └── # Business rules and validation logic
+├── tests/
+│   └── # Automated tests
 ├── output/
-│   ├── applicants.csv
-│   ├── assets.csv
-│   ├── quotes.csv
-│   ├── underwriting_decisions.csv
-│   ├── policies.csv
-│   ├── renewals.csv
-│   ├── endorsements.csv
-│   ├── ground_truth.csv
-│   └── validation_report.json
+│   └── # Generated datasets
 ├── generate_data.py
 ├── validate_data.py
-├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
+The directory structure above summarizes the main project components. Individual files may vary according to the current repository version.
+
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Prerequisites
+
+Install Python and Git. Python 3.10 or newer is a reasonable starting point, but use the version supported by the project's actual dependencies.
+
+Check your installation:
 
 ```bash
-git clone <your-github-repository-url>
+python --version
+git --version
+```
+
+### 2. Clone the repository
+
+```bash
+git clone https://github.com/asan-786/insurance-data-generator.byasan.git
 cd insurance-data-generator
 ```
 
-### 2. Create a virtual environment
+### 3. Create and activate a virtual environment
 
-```bash
-python -m venv venv
-```
-
-Activate it on Windows PowerShell:
+**Windows PowerShell**
 
 ```powershell
+python -m venv venv
 .\venv\Scripts\Activate.ps1
 ```
 
-### 3. Install dependencies
+**macOS / Linux**
 
 ```bash
-pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-### 4. Generate the datasets
+### 4. Install dependencies
+
+If the repository includes a `requirements.txt` file, run:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+If no dependency file is present, install the project's actual required packages as documented in the source code. The test suite requires `pytest`.
+
+## Running the Project
+
+Run the following commands from the project root.
+
+### Generate synthetic data
 
 ```bash
 python generate_data.py
 ```
 
-### 5. Run automated tests
+This executes the data generation pipeline and writes its outputs to the configured output location.
 
-```bash
-python -m pytest -q
-```
-
-### 6. Validate the generated data
+### Validate generated data
 
 ```bash
 python validate_data.py
 ```
 
-## Validation Results
+This executes the validation pipeline and reports the overall validation result and any unexpected errors.
 
-The current generated dataset passes validation with:
+### Run automated tests
 
-- 9 automated tests passed.
-- 80 expected premium anomalies detected.
-- 4 expected non-premium anomaly findings.
-- 0 unexpected validation errors.
+```bash
+python -m pytest -q
+```
 
-The validation report is saved to `output/validation_report.json`.
+This runs the project's automated test suite in quiet mode.
+
+## Generated Datasets
+
+The project generates the following categories of insurance data:
+
+| Dataset | Purpose |
+|---|---|
+| Applicants | Synthetic applicant records |
+| Assets | Information about insured assets |
+| Quotes | Insurance quote records |
+| Underwriting decisions | Underwriting decision records |
+| Policies | Policy records |
+| Renewals | Policy renewal records |
+| Endorsements | Policy amendment records |
+| Ground-truth labels | Labels associated with selected records or anomalies |
+
+The exact schemas, relationships, row counts, and output formats should be verified against the generated files and current implementation.
+
+## Validation and Testing
+
+The project uses business rules to identify data inconsistencies and potential anomalies.
+
+Examples of checks include:
+
+- Whether policies have the required acceptance status.
+- Whether endorsement values remain within product limits.
+- Whether renewals are consistent with policy cancellation status.
+- Whether policy periods overlap unexpectedly.
+- Whether premium values exhibit defined anomalies.
+
+Validation results depend on the implemented rules and the generated dataset. A successful validation run does not establish that every possible insurance business rule is covered.
+
+### Previously verified results
+
+During development, the project was verified with the following results:
+
+| Check | Result |
+|---|---|
+| Data generation | Successful |
+| Validation pipeline | PASS |
+| Unexpected validation errors | 0 |
+| Automated tests | 9 passed |
+
+These are previously observed development results, not a guarantee for every future run or repository version. Re-run the commands above to verify the current version.
+
+## Design Decisions
+
+### Why synthetic data?
+
+Synthetic data allows development and testing without relying on real customer or policyholder information. It also makes it possible to construct scenarios for testing business rules and data quality checks.
+
+### Why separate generation and validation?
+
+Separating data generation from validation keeps the responsibilities easier to understand and test. Generated records can be inspected independently, while validation logic can be improved without mixing it into the generation process.
+
+### Why automated tests?
+
+Automated tests help detect regressions when generation logic, data relationships, or business rules change. They provide a repeatable way to verify expected behavior during development.
+
+## Assumptions and Limitations
+
+- The data is synthetic and should not be interpreted as actual customer or insurance company data.
+- The implemented business rules represent only the scenarios covered by the current code.
+- Generated records and row counts may vary between runs depending on the implementation and configuration.
+- The project does not establish compliance with any specific insurance regulation or production underwriting standard.
+- Any known incomplete features or limitations should be documented here as development continues.
 
 ## Reproducibility
 
-The generator uses seed `2026` to make synthetic data generation reproducible, provided the generation logic and dependencies remain unchanged.
+To reproduce the basic development checks, run:
 
-## Disclaimer
+```bash
+python generate_data.py
+python validate_data.py
+python -m pytest -q
+```
 
-All generated records are synthetic and intended for software development, testing, and demonstration. They do not represent real policyholders or actual insurance contracts.
+Review the console output and generated datasets to confirm the results. Record the Python version, dependency versions, and any configuration required to reproduce a particular run.
+
+## AI Usage and Development Transparency
+
+This project follows the YottaFlex AI candidate-project requirement for transparent AI usage.
+
+AI tools may be used for assistance, but the submitted work must remain the candidate's individual work. The candidate should be able to explain the core logic, dependencies, design decisions, testing approach, and limitations.
+
+Document the actual AI usage in a file such as:
+
+`docs/AI_PROMPT_HISTORY.md`
+
+Include:
+
+- The prompts submitted to each AI tool used.
+- The areas where AI assistance accelerated development.
+- The code and design decisions personally reviewed or modified.
+- The tests and validations personally performed.
+- Any limitations in recording prompt history.
+
+Do not invent historical prompts or claim independent verification that was not performed. AI responses may be included, but the candidate project FAQ states that they are optional.
+
+## Security and Data Privacy
+
+- Do not commit API keys, passwords, access tokens, or other credentials.
+- Do not include real customer records or sensitive personal information.
+- Keep virtual environments, local secrets, caches, and unnecessary generated artifacts out of Git.
+- Use synthetic or otherwise authorized sample data.
 
 ## Future Improvements
 
-- Add a data profiling dashboard.
-- Generate visual summaries of anomalies.
-- Add configurable dataset sizes and anomaly rates.
-- Integrate automated data quality reporting.
-- Add a database export option.
+Potential future enhancements, depending on project requirements, include:
+
+- Configurable dataset sizes and generation parameters.
+- More comprehensive cross-dataset integrity checks.
+- Additional anomaly scenarios and validation tests.
+- Reproducible random seeds and documented configurations.
+- Structured validation reports with counts and explanations.
+- Schema documentation and example output samples.
+
+These are possible improvements, not claims that the features are already implemented.
+
+## Author
+
+**Asan Ali**
+
+GitHub: [asan-786](https://github.com/asan-786)
+
+## License
+
+A license has not been specified in this README. Add an appropriate license file if you intend to publish the project under a particular open-source license.
+
+---
+
+*Developed as a synthetic insurance data generation and validation project. The repository's source code, tests, and documented execution results are the authoritative references for implemented functionality.*
